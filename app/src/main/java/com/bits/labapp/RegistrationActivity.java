@@ -7,9 +7,12 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import com.bits.labapp.databinding.ActivityRegistrationBinding;
+import com.bits.labapp.sqlite.StudentDB;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Vector;
 
@@ -56,13 +59,17 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        students = new Vector<>();
+        StudentDB studentDB = new StudentDB(getApplicationContext());
+        ArrayList<Student> studentArrayList = (ArrayList<Student>) studentDB.fnGetAllStudents();
+        if (studentArrayList.isEmpty())
+            students = new Vector<>();
+        else
+            students = new Vector<Student>(studentArrayList);
+
         adapter = new StudentAdapter(getLayoutInflater(),students);
 
         binding.rcvStud.setAdapter(adapter);
         binding.rcvStud.setLayoutManager(new LinearLayoutManager(this));
-
-
     }
 
     private void fnAdd(View view)
@@ -83,5 +90,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
         students.add(student);
         adapter.notifyItemInserted(students.size());
+
+        StudentDB studentDB = new StudentDB(getApplicationContext());
+        int code = (int) studentDB.fnInsertStudent(student);
+
+        if (code == -1)
+            Toast.makeText(getApplicationContext(),"Unable to save data. Might be conflict primary key.", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getApplicationContext(), "Data saved!" + code, Toast.LENGTH_SHORT).show();
     }
 }

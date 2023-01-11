@@ -12,6 +12,14 @@ public class Student {
         this.strState = strState;
     }
 
+    public Student(String strFullname, String strStudNo, String strEmail, String strGender, String strState) {
+        this.strFullname = strFullname;
+        this.strStudNo = strStudNo;
+        this.strEmail = strEmail;
+        this.strGender = strGender;
+        this.strState = strState;
+    }
+
     public String getStrFullname() {
         return strFullname;
     }
