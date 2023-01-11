@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edtStudNum" type="id" />
+    <item name="edtFullName" type="id" />
+    <item name="edtEmail" type="id" />
+    <item name="edtBirthdate" type="id" />
+    <item name="rgGender" type="id" />
+    <item name="textView3" type="id" />
+    <item name="rbMale" type="id" />
+    <item name="rbFemale" type="id" />
+    <item name="textView4" type="id" />
+    <item name="spnState" type="id" />
+    <item name="fabAdd" type="id" />
+    <item name="rcvStud" type="id" />
+</resources>
