@@ -86,7 +86,7 @@ public class RegistrationActivity extends AppCompatActivity {
         else if(binding.rbFemale.isChecked())
             gender = binding.rbFemale.getText().toString();
 
-        student = new Student(fullname,studNo,email,gender,birth, state);
+        student = new Student(fullname,studNo,email,gender,birth,state);
 
         students.add(student);
         adapter.notifyItemInserted(students.size());

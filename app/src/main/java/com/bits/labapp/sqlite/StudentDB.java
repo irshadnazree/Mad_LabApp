@@ -52,10 +52,10 @@ public class StudentDB extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(colFullName, insStudent.getStrFullname());
+        values.put(colEmail, insStudent.getStrEmail());
         values.put(colGender, insStudent.getStrGender());
         values.put(colBirth, insStudent.getStrBirthdate());
         values.put(colState, insStudent.getStrState());
-        values.put(colEmail, insStudent.getStrEmail());
 
         retResult = sqLiteDatabase.insert(tblStudent, null, values);
         return retResult;
@@ -73,9 +73,11 @@ public class StudentDB extends SQLiteOpenHelper {
                 String strStudName = cursor.getString(cursor.getColumnIndex((colFullName)));
                 String strStudNo = cursor.getString(cursor.getColumnIndex((colStudNo)));
                 String strEmail = cursor.getString(cursor.getColumnIndex((colEmail)));
-                String strState = cursor.getString(cursor.getColumnIndex((colState)));
                 String strGender = cursor.getString(cursor.getColumnIndex((colGender)));
-                Student student = new Student(strStudName,strStudNo,strEmail,strState,strGender);
+                String strBirth = cursor.getString(cursor.getColumnIndex((colBirth)));
+                String strState = cursor.getString(cursor.getColumnIndex((colState)));
+
+                Student student = new Student(strStudName,strStudNo,strEmail,strState,strBirth,strGender);
                 studLists.add(student);
             }while(cursor.moveToNext());
         }
