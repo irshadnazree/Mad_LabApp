@@ -1,0 +1,49 @@
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".CameraActivity"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imgVwProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvGreet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where's your avatar?"
+            android:textSize="21sp"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/btnTakePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="fnTakePic"
+            android:text="Take Picture!"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
